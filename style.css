@@ -267,11 +267,4 @@ body.homepage {
   .clients > div {
       flex-basis: auto; 
   }
-
-  /* --- NUOVA REGOLA AGGIUNTA --- */
-  /* Sottolinea il testo specifico solo su mobile */
-  .mobile-underlined {
-      text-decoration: underline;
-      text-underline-offset: 3px;
-  }
 }
