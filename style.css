@@ -19,7 +19,7 @@ body {
   line-height: 15px; 
   color: black;
   text-align: center;
-  
+   
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -47,19 +47,19 @@ body.homepage {
   top: 0;
   left: 0;
   right: 0; 
-  
+   
   display: flex;
   justify-content: space-between; 
   align-items: flex-start; 
-  
+   
   padding: 8px 10px 10px 10px; 
   margin: 0; 
-  
+   
   background-color: transparent; 
   z-index: 1000;
   color: white; 
   mix-blend-mode: difference; 
-  
+   
   font-weight: normal;
   font-size: inherit;
   font-family: inherit;
@@ -88,9 +88,18 @@ body.homepage {
     margin-top: 0;
 }
 
-/* Gestione visibilità punti di sospensione Mobile */
-.mobile-dots {
-    display: none; /* Nascondi di default su Desktop */
+/* Gestione About Desktop vs Mobile */
+
+/* Di default (Desktop) mostriamo quello a sinistra e nascondiamo quello a destra */
+.desktop-about {
+    display: inline;
+}
+
+.mobile-about-link {
+    display: none; /* Nasosto su desktop */
+    color: white;
+    mix-blend-mode: difference;
+    text-decoration: none;
 }
 
 /* ------------------------------------- */
@@ -164,11 +173,11 @@ body.homepage {
   position: absolute;
   bottom: 30px; 
   left: 10px; 
-  
+   
   color: white;
   mix-blend-mode: difference;
   z-index: 10; 
-  
+   
   text-align: left;
   font-family: inherit;
   font-size: inherit;
@@ -182,13 +191,13 @@ body.homepage {
 .clients {
   padding-top: 140px; 
   padding-bottom: 70px; 
-  
+   
   padding-left: 10px;
   padding-right: 10px;
-  
+   
   margin-left: 0; 
   margin-right: 0; 
-  
+   
   text-align: left; 
   display: flex; 
   justify-content: space-between; 
@@ -221,7 +230,7 @@ body.homepage {
 /* ------------------------------------- */
 
 @media screen and (max-width: 840px) {
-  
+   
   body.homepage {
       padding-top: 0;
   }
@@ -236,16 +245,25 @@ body.homepage {
     text-align: left;
     margin-top: 10px;
   }
+
+  /* SWAP: Nascondi About Desktop, mostra About Mobile */
+  .desktop-about {
+      display: none;
+  }
   
+  .mobile-about-link {
+      display: inline; /* Appare su mobile */
+  }
+   
   .gallery-container.fullscreen {
       height: 100vh;
   }
-  
+   
   .caption {
       bottom: 30px; 
       left: 10px;
   }
-  
+   
   /* Video ignora tocchi, Overlay li cattura */
   .video-toggle {
       pointer-events: none;
@@ -259,7 +277,7 @@ body.homepage {
   .clients {
       flex-direction: column; 
       gap: 30px; 
-      
+       
       padding-left: 10px;
       padding-right: 10px;
       max-width: none;
@@ -267,13 +285,8 @@ body.homepage {
       margin-left: 0;
       margin-right: 0;
   }
-  
+   
   .clients > div {
       flex-basis: auto;
-  }
-  
-  /* MOSTRA i puntini sottolineati solo su mobile */
-  .mobile-dots {
-      display: inline;
   }
 }
